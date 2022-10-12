@@ -1,0 +1,30 @@
+---
+layout: index
+title: Blog posts
+---
+
+
+<div id="home" class="padding">
+	
+	<div class="section_title">
+			<h3>Blog Post</h3>
+		</div>
+	  {% for post in site.posts %}
+	  {% endfor %}
+
+        <ul class="posts">
+		{% for post in site.posts %}
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+  <div id="y{{currentdate}}" class="section_title" ><h4>{{ currentdate }}</h4></div>
+    {% assign date = currentdate %}
+  {% endif %}
+    <li><span>{{ post.date | date: "%-d. %B"}}</span> » <a href="{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></li>
+{% endfor %}
+	</ul>
+
+<div class="bottom"></div>
+</div>
+
+<div id="footer" class="page">
+  </div>

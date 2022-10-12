@@ -1,18 +1,8 @@
 $(document).ready(function() {
 	
 	// CSS3 rounded corners / shadows
-	$("#commentform textarea, #commentform input[type=text]").addClass("text_field");
-	$("#commentform span.required").remove();
-	$("#commentform #submit").remove();
-	$("#commentform .form-submit")
-	 .prepend('<a class="button " href="javascript:;"><span>Post Comment</span></a>')
-	 .click(function() {
-		$("#commentform").submit();
-	});
-	
 	$("div#header li.current_page_item a, div#header li.current-page-ancestor a").css({ '-moz-border-radius': '6px', '-webkit-border-radius': '6px', 'border-radius': '6px' });
 	$("div.widget").css({ '-moz-border-radius': '8px', '-webkit-border-radius': '8px', 'border-radius': '8px' });
-	$("div#price_table table").css({ '-moz-border-radius': '8px', '-webkit-border-radius': '8px', 'border-radius': '8px' });
 	$("span.highlight_dark, span.highlight_light").css({ '-moz-border-radius': '2px', '-webkit-border-radius': '2px', 'border-radius': '2px' });
 	$("div.team ul li a").css({ '-moz-border-radius': '8px', '-webkit-border-radius': '8px', 'border-radius': '8px' });
 	$("form .text_field, form #s").css({ '-moz-border-radius': '8px', '-webkit-border-radius': '8px', 'border-radius': '8px' });
@@ -45,33 +35,10 @@ $(document).ready(function() {
 		}
 	});
 	
-	$("#price_table table thead td:last").addClass("last");
-	
-	$("#price_table table tbody tr").each(function() {
-		$("td:last", this).addClass("last");
-	});
-	
-	var plans = $("#price_table table thead td");
-	
-	switch (plans.size()) {
-		case 1 : plans.width("100%"); break;
-		case 2 : plans.width("50%"); break;
-		case 3 : plans.width("33%"); break;
-		case 4 : plans.width("25%"); break;
-		case 5 : plans.width("20%"); break;
-		case 6 : plans.width("16%"); break;
-		case 7 : plans.width("14%"); break;
-	}
-	
-	// Button Hover
-	if($.browser.msie && $.browser.version == "7.0") {
-		$(".button").css("padding-top", "0px");
-	} else {
-		jQuery('.button').hover(
-			function() { jQuery(this).stop().animate({opacity:0.8},400); },
-			function() { jQuery(this).stop().animate({opacity:1},400); }
-		);
-	}
+	jQuery('.button').hover(
+		function() { jQuery(this).stop().animate({opacity:0.8},400); },
+		function() { jQuery(this).stop().animate({opacity:1},400); }
+	);
 	
 	// Add form submit capability to buttons
 	$("a.submit").click(function() {
